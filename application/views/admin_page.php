@@ -4,116 +4,98 @@ if (empty($_SESSION['username'])) {
 	echo '<script>alert("Maaf, Anda belum login.")</script>';
 	redirect(base_url('paket/'), 'refresh');
 } else {
-	?>
+?>
 
 	<!DOCTYPE html>
 	<html lang='en'>
+
 	<head>
-		<link href="http://localhost/tugasakhir/public/css/bootstrap.min.css" rel="stylesheet"
-			  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-			  crossorigin="anonymous">
+		<link rel="icon" type="image/png" href="http://localhost/tugasakhir/public/image/logo2.png">
+		<link href="http://localhost/tugasakhir/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 		<title>Halaman Admin</title>
 	</head>
+
 	<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<img class="navbar-brand" src="http://localhost/tugasakhir/public/image/logo.png"
-				 style="display: block; width: 10%;" alt="logo">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-					aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="http://localhost/tugasakhir/paket/admin/">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#list">List Pengiriman</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" style="position: absolute; right: 50px;"
-						   href='<?php echo base_url('/paket/logout/'); ?>'>Logout</a>
-					</li>
-				</ul>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<img class="navbar-brand" src="http://localhost/tugasakhir/public/image/logo.png" style="display: block; width: 10%;" alt="logo">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="http://localhost/tugasakhir/paket/admin/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#list">List Pengiriman</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href='<?php echo base_url('/paket/logout/'); ?>'>Logout</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
-	<div class="container-fluid"
-		 style="background-image: url('http://localhost/tugasakhir/public/image/admin.jpeg'); height: 565px; width: 100%;">
-		<div class="row" align="center">
-			<h1 style="color: white; margin-top: 175px;">Selamat datang, <?php echo $_SESSION['username']; ?>.</h1>
-		</div>
-		<div class="row justify-content-md-center">
-			<div class="col col-lg-4" align="center">
-				<p style="color: white; font-size: larger">Selamat bekerja! Gunakan sistem ini untuk kepentingan
-					pengolahan data barang.</p>
+		</nav>
+		<div class="container-fluid" style="background-image: url('http://localhost/tugasakhir/public/image/admin.jpeg'); height: 530px; width: 100%; background-attachment: fixed">
+			<div class="row" align="center">
+				<h1 style="color: white; margin-top: 175px;">Selamat datang, <?php echo $_SESSION['username']; ?>.</h1>
 			</div>
-		</div>
-		<div class="row justify-content-md-center" style="margin-bottom: 140px">
-			<div class="col col-lg-8">
-				<div class="d-grid gap-2 col-3 mx-auto">
-					<a href='<?php echo base_url('/paket/create/'); ?>' class="btn btn-dark" style="margin-top: 15px;">Create</a>
+			<div class="row justify-content-md-center">
+				<div class="col col-lg-4" align="center">
+					<p style="color: white; font-size: larger">Selamat bekerja! Gunakan sistem ini untuk kepentingan
+						pengolahan data barang.</p>
+				</div>
+			</div>
+			<div class="row justify-content-md-center" style="margin-bottom: 140px">
+				<div class="col col-lg-8">
+					<div class="d-grid gap-2 col-3 mx-auto">
+						<a href='<?php echo base_url('/paket/create/'); ?>' class="btn btn-dark" style="margin-top: 15px;">Create</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<br>
-	<br>
-	<section id="list">
-		<div class="container" style="padding-bottom: 20px">
-			<h1>
-				<center>List Pengiriman</center>
-			</h1>
-			<br>
-			<table class="table table-responsive table-hover table-sm align-middle">
-				<thead class="table-secondary">
-				<tr>
-					<th>No. Resi</th>
-					<th>Nama Barang</th>
-					<th>Nama Pengirim</th>
-					<th>Nama Penerima</th>
-					<th>Alamat</th>
-					<th>Status</th>
-					<th>Control</th>
-				</tr>
-				</thead>
-				<?php foreach ($posts as $post): ?>
-					<tr class="table-light">
-						<td> <?php echo $post->resi; ?></td>
-						<td> <?php echo $post->barang; ?> </td>
-						<td> <?php echo $post->pengirim; ?> </td>
-						<td> <?php echo $post->penerima; ?> </td>
-						<td> <?php echo $post->alamat; ?> </td>
-						<td> <?php echo $post->status; ?> </td>
-						<td>
-							<div class="d-grid gap-2 col-4">
-								<a href='<?php $this->load->helper('url');
-								echo base_url('/paket/update/' . $post->resi); ?>'
-								   class="badge text-primary text-decoration-none" style="font-size: 14px">Update</a>
-								<a href='<?php echo base_url('/paket/delete/' . $post->resi); ?>'
-								   onclick='return confirm("Apakah anda yakin ingin menghapus data?")'
-								   class="badge text-danger text-decoration-none" style="font-size: 14px">Delete</a>
-							</div>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</table>
+		<section id="list" style="min-height: 515px; margin-top: 45px">
+			<div class="container" style="padding-bottom: 20px">
+				<h1 style="text-align: center; margin-bottom: 20px">List Pengiriman</h1>
+				<br>
+				<table class="table table-responsive table-hover table-sm align-middle">
+					<thead class="table-secondary">
+						<tr>
+							<th>No. Resi</th>
+							<th>Nama Barang</th>
+							<th>Nama Pengirim</th>
+							<th>Nama Penerima</th>
+							<th>Alamat</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<?php foreach ($posts as $post) : ?>
+						<tr class="table-light">
+							<td> <?php echo $post->resi; ?></td>
+							<td> <?php echo $post->barang; ?> </td>
+							<td> <?php echo $post->pengirim; ?> </td>
+							<td> <?php echo $post->penerima; ?> </td>
+							<td> <?php echo $post->alamat; ?> </td>
+							<td> <?php echo $post->status; ?> </td>
+							<td>
+								<div class="d-grid gap-2 col-4">
+									<a href='<?php $this->load->helper('url');
+												echo base_url('/paket/update/' . $post->resi); ?>' class="badge text-primary text-decoration-none" style="font-size: 14px">Update</a>
+									<a href='<?php echo base_url('/paket/delete/' . $post->resi); ?>' onclick='return confirm("Apakah anda yakin ingin menghapus data?")' class="badge text-danger text-decoration-none" style="font-size: 14px">Delete</a>
+								</div>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</table>
+			</div>
+		</section>
+		<div style="padding-bottom: 30px">
 		</div>
-	</section>
-	<div>
-		<footer class="container-fluid"
-				style="background-color: whitesmoke; padding-top: 28px; padding-bottom: 18px; margin-top: 55px;">
-			<p align="center">Copyright ©️ 2021. All Rights Reserved. | PHP Express</p>
-		</footer>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-			integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-			crossorigin="anonymous"></script>
-	<script src="http://localhost/tugasakhir/public/js/bootstrap.min.js"
-			integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+		<script src="http://localhost/tugasakhir/public/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 	</body>
+
 	</html>
 <?php } ?>
