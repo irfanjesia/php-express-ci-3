@@ -1,19 +1,23 @@
 <?php
 
 
-class paket extends CI_Controller {
+class paket extends CI_Controller
+{
 
-	public function index() {
+	public function index()
+	{
 		$this->load->helper('url');
 		$this->load->view('welcome');
 	}
 
-	public function home() {
+	public function home()
+	{
 		$this->load->helper('url');
 		$this->load->view('home');
 	}
 
-	public function guest() {
+	public function guest()
+	{
 		$resi = $this->input->post('resi');
 		$this->load->helper('url');
 		$this->load->model('process');
@@ -22,14 +26,16 @@ class paket extends CI_Controller {
 		$this->load->view('guest_page', $data);
 	}
 
-	public function login() {
+	public function login()
+	{
 		session_start();
 		$this->load->helper('url');
 		$this->load->view('login_page');
 		$_SESSION['username'] = 'admin';
 	}
 
-	public function login_process() {
+	public function login_process()
+	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$this->load->helper('url');
@@ -37,7 +43,8 @@ class paket extends CI_Controller {
 		$this->process->administration($username, $password);
 	}
 
-	public function logout() {
+	public function logout()
+	{
 		session_start();
 		$_SESSION['username'] = '';
 		session_destroy();
@@ -45,7 +52,8 @@ class paket extends CI_Controller {
 		redirect(base_url('paket/'), 'refresh');
 	}
 
-	public function admin() {
+	public function admin()
+	{
 		$this->load->helper('url');
 		$this->load->model('process');
 		$posts = $this->process->get_posts();
@@ -53,12 +61,14 @@ class paket extends CI_Controller {
 		$this->load->view('admin_page', $data);
 	}
 
-	public function create() {
+	public function create()
+	{
 		$this->load->helper('url');
 		$this->load->view('create');
 	}
 
-	public function create_process() {
+	public function create_process()
+	{
 		$resi = $this->input->post('resi');
 		$barang = $this->input->post('barang');
 		$pengirim = $this->input->post('pengirim');
@@ -67,18 +77,20 @@ class paket extends CI_Controller {
 		$status = $this->input->post('status');
 		$this->load->helper('url');
 		$this->load->model('process');
-				$this->process->insert_post($resi, $barang, $pengirim, $penerima, $alamat, $status);
-		redirect(base_url('paket/admin'), 'refresh');
+		$this->process->insert_post($resi, $barang, $pengirim, $penerima, $alamat, $status);
+		redirect(base_url('paket/admin/#list'), 'refresh');
 	}
 
-	public function delete($resi) {
+	public function delete($resi)
+	{
 		$this->load->helper('url');
 		$this->load->model('process');
 		$this->process->delete_post($resi);
-		redirect(base_url('paket/admin/'), 'refresh');
+		redirect(base_url('paket/admin/#list'), 'refresh');
 	}
 
-	public function update($resi) {
+	public function update($resi)
+	{
 		$this->load->helper('url');
 		$this->load->model('process');
 		$posts = $this->process->get_postsById($resi);
@@ -86,7 +98,8 @@ class paket extends CI_Controller {
 		$this->load->view('update', $data);
 	}
 
-	public function update_process($resi) {
+	public function update_process($resi)
+	{
 		$barang = $this->input->post('barang');
 		$pengirim = $this->input->post('pengirim');
 		$penerima = $this->input->post('penerima');
@@ -95,6 +108,6 @@ class paket extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('process');
 		$this->process->update_post($resi, $barang, $pengirim, $penerima, $alamat, $status);
-		redirect(base_url('paket/admin/'), 'refresh');
+		redirect(base_url('paket/admin/#list'), 'refresh');
 	}
 }

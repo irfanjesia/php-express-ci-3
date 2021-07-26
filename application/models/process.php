@@ -1,15 +1,18 @@
 <?php
 
 
-class process extends CI_Model {
+class process extends CI_Model
+{
 
-	public function get_posts() {
+	public function get_posts()
+	{
 		$this->load->database();
 		$query = $this->db->get('daftarpaket');
 		return $query->result();
 	}
 
-	public function get_postsById($resi) {
+	public function get_postsById($resi)
+	{
 		$this->load->database();
 		$query = $this->db->get_where('daftarpaket', array('resi' => $resi));
 		if ($query->result() == null) {
@@ -19,7 +22,8 @@ class process extends CI_Model {
 		}
 	}
 
-	public function update_post($resi, $barang, $pengirim, $penerima, $alamat, $status) {
+	public function update_post($resi, $barang, $pengirim, $penerima, $alamat, $status)
+	{
 		$this->load->database();
 		$data = array(
 			'barang' => $barang,
@@ -32,7 +36,8 @@ class process extends CI_Model {
 		$this->db->update('daftarpaket', $data);
 	}
 
-	public function insert_post($resi, $barang, $pengirim, $penerima, $alamat, $status) {
+	public function insert_post($resi, $barang, $pengirim, $penerima, $alamat, $status)
+	{
 		$this->load->database();
 		$data = array(
 			'resi' => $resi,
@@ -45,13 +50,15 @@ class process extends CI_Model {
 		$this->db->insert('daftarpaket', $data);
 	}
 
-	public function delete_post($resi) {
+	public function delete_post($resi)
+	{
 		$this->load->database();
 		$this->db->delete('daftarpaket', array('resi' => $resi));
 	}
 
-	public function administration($username, $password) {
-		if ($username == 'admin' && $password == 'rahasia'){
+	public function administration($username, $password)
+	{
+		if ($username == 'admin' && $password == 'rahasia') {
 			$this->load->helper('url');
 			$this->load->model('process');
 			$posts = $this->process->get_posts();
