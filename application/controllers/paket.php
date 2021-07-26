@@ -6,13 +6,13 @@ class paket extends CI_Controller
 
 	public function index()
 	{
-		// $this->load->helper('url');
+		$this->load->helper('url');
 		$this->load->view('welcome');
 	}
 
 	public function home()
 	{
-		// $this->load->helper('url');
+		$this->load->helper('url');
 		$this->load->view('home');
 	}
 
