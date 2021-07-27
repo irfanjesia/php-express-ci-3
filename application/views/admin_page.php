@@ -81,8 +81,8 @@ if (empty($_SESSION['username'])) {
 							<td> <?php echo $post->status; ?> </td>
 							<td>
 								<div class="d-grid gap-2 col-4">
-									<a href='<?php echo base_url('/Admin/update/' . $post->resi); ?>' class="badge text-primary text-decoration-none" style="font-size: 14px">Update</a>
-									<a href='<?php echo base_url('/Admin/delete/' . $post->resi); ?>' onclick='return confirm("Apakah anda yakin ingin menghapus data?")' class="badge text-danger text-decoration-none" style="font-size: 14px">Delete</a>
+									<a href="<?php echo base_url('Admin/update/' . $post->resi); ?>" class="badge text-primary text-decoration-none" style="font-size: 14px">Update</a>
+									<a href="<?php echo base_url('Admin/delete/' . $post->resi); ?>" onclick='return confirm("Apakah anda yakin ingin menghapus data?")' class="badge text-danger text-decoration-none" style="font-size: 14px">Delete</a>
 								</div>
 							</td>
 						</tr>
