@@ -17,10 +17,10 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href='<?php echo base_url('/paket/admin/'); ?>'>Home</a>
+						<a class="nav-link active" aria-current="page" href='<?php echo base_url(); ?>Admin/home/; ?>'>Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href='<?php echo base_url('/paket/admin/#list'); ?>'>List Pengiriman</a>
+						<a class="nav-link" href='<?php echo base_url(); ?>Admin/home/#list'>List Pengiriman</a>
 					</li>
 				</ul>
 			</div>
@@ -32,7 +32,7 @@
 				<h1>Update</h1>
 				<br>
 				<?php foreach ($posts as $post) : ?>
-					<form action='<?php echo base_url('/paket/update_process/' . $post->resi); ?>' method='post' style="background-color: lightgrey; padding: 20px 20px 20px 20px; border-radius: 5px; opacity: 90%">
+					<form action='<?php echo base_url('/Admin/update_process/' . $post->resi); ?>' method='post' style="background-color: lightgrey; padding: 20px 20px 20px 20px; border-radius: 5px; opacity: 90%">
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label"> Nama Barang: </label>
 							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='barang' value='<?php echo $post->barang; ?>'>
@@ -72,7 +72,7 @@ transform: translateY(-50%);" alt="logo">
 		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-	<script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+	<script src="<?php echo base_url(); ?>/public/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 </body>
 
 </html>

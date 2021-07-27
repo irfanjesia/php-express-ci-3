@@ -72,7 +72,7 @@
 	</div>
 	<section id="cek">
 		<div class="container-fluid" style="padding-top: 50px">
-			<form action='<?php echo base_url('/paket/guest/'); ?>' method='post'>
+			<form action='<?php echo base_url(); ?>Guest/cek_resi/' method='post'>
 				<div class="row">
 					<div class="col" style="margin: 40px;">
 						<h5>Masukkan Nomor Resi</h5>
@@ -113,7 +113,7 @@
 				</p>
 			</div>
 			<div class="col-4">
-				<img style="border-radius: 10%; width: 95%; height: 95%;" src="<?php echo base_url(); ?>public/image/php.jpg" alt="about">
+				<img style="border-radius: 10%; width: 95%; height: 95%;" src="<?php echo base_url(); ?>public/image/php.JPG" alt="about">
 			</div>
 		</div>
 	</section>
@@ -126,7 +126,7 @@
 				<p>195150407111021</p>
 			</div>
 			<div style="text-align: center; padding: 3%" class="feature-box col-lg-3">
-				<img style="width: 70%; margin-bottom: 1rem; border-radius: 100%" src="<?php echo base_url(); ?>public/image/foto2.jpg" alt="Zia">
+				<img style="width: 70%; margin-bottom: 1rem; border-radius: 100%" src="<?php echo base_url(); ?>public/image/foto2.JPG" alt="Zia">
 				<h4>Hafia Azzahra</h4>
 				<p>195150400111049</p>
 			</div>
@@ -136,7 +136,7 @@
 				<p>195150401111033</p>
 			</div>
 			<div style="text-align: center; padding: 3%" class="feature-box col-lg-3">
-				<img style="width: 70%; margin-bottom: 1rem; border-radius: 100%" src="<?php echo base_url(); ?>public/image/foto4.jpg" alt="Cornel">
+				<img style="width: 70%; margin-bottom: 1rem; border-radius: 100%" src="<?php echo base_url(); ?>public/image/foto4.JPG" alt="Cornel">
 				<h4>Cornella Putri M</h4>
 				<p>195150407111025</p>
 			</div>

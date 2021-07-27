@@ -31,7 +31,7 @@ if (empty($_SESSION['username'])) {
 							<a class="nav-link" href="#list">List Pengiriman</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href='<?php echo base_url('/paket/logout/'); ?>'>Logout</a>
+							<a class="nav-link" href='<?php echo base_url(); ?>Admin/logout/'>Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -50,7 +50,7 @@ if (empty($_SESSION['username'])) {
 			<div class="row justify-content-md-center" style="margin-bottom: 140px">
 				<div class="col col-lg-8">
 					<div class="d-grid gap-2 col-3 mx-auto">
-						<a href='<?php echo base_url('/paket/create/'); ?>' class="btn btn-dark" style="margin-top: 15px;">Create</a>
+						<a href='<?php echo base_url(); ?>Admin/create/' class="btn btn-dark" style="margin-top: 15px;">Create</a>
 					</div>
 				</div>
 			</div>
@@ -81,9 +81,8 @@ if (empty($_SESSION['username'])) {
 							<td> <?php echo $post->status; ?> </td>
 							<td>
 								<div class="d-grid gap-2 col-4">
-									<a href='<?php $this->load->helper('url');
-												echo base_url('/paket/update/' . $post->resi); ?>' class="badge text-primary text-decoration-none" style="font-size: 14px">Update</a>
-									<a href='<?php echo base_url('/paket/delete/' . $post->resi); ?>' onclick='return confirm("Apakah anda yakin ingin menghapus data?")' class="badge text-danger text-decoration-none" style="font-size: 14px">Delete</a>
+									<a href='<?php echo base_url('/Admin/update/' . $post->resi); ?>' class="badge text-primary text-decoration-none" style="font-size: 14px">Update</a>
+									<a href='<?php echo base_url('/Admin/delete/' . $post->resi); ?>' onclick='return confirm("Apakah anda yakin ingin menghapus data?")' class="badge text-danger text-decoration-none" style="font-size: 14px">Delete</a>
 								</div>
 							</td>
 						</tr>

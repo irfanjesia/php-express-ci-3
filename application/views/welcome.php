@@ -21,10 +21,8 @@
 	</div>
 	<div class="container-fluid">
 		<div class="d-grid gap-2 col-4 mx-auto" style="margin-bottom: 40px;">
-			<a class="btn btn-dark" href='<?php $this->load->helper('url');
-											echo base_url('/paket/home/'); ?>' role="button">Enter as Guest</a>
-			<a class="btn btn-secondary" href='<?php $this->load->helper('url');
-												echo base_url('/paket/login/'); ?>' role="button">Login as Administrator</a>
+			<a class="btn btn-dark" href='<?php echo base_url(); ?>Guest/home/' role="button">Enter as Guest</a>
+			<a class="btn btn-secondary" href='<?php echo base_url(); ?>Admin/login/' role="button">Login as Administrator</a>
 		</div>
 	</div>
 	<div class="container-fluid">

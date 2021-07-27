@@ -15,7 +15,7 @@ margin-right: auto; margin-top: 120px; margin-bottom: 40px;" alt="logo">
 		</div>
 	</div>
 	<div class="container-fluid">
-		<form action='<?php echo base_url('/paket/login_process/'); ?>' method='post'>
+		<form action='<?php echo base_url(); ?>Admin/login_process/' method='post'>
 			<div class="row justify-content-md-center">
 				<div class="col col-lg-8" align="center">
 					<div class="d-grid gap-2 col-4 mx-auto">

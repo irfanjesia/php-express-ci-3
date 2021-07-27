@@ -1,8 +1,12 @@
 <?php
 
 
-class process extends CI_Model
+class Process_model extends CI_Model
 {
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
 	public function get_posts()
 	{
@@ -59,13 +63,13 @@ class process extends CI_Model
 	public function administration($username, $password)
 	{
 		if ($username == 'admin' && $password == 'rahasia') {
-			$this->load->model('process');
-			$posts = $this->process->get_posts();
+			$this->load->model('Process_model');
+			$posts = $this->Process_model->get_posts();
 			$data['posts'] = $posts;
-			redirect(base_url('paket/admin/'), 'refresh');
+			redirect(base_url('Admin/home/'), 'refresh');
 		} else {
 			echo '<script>alert("Login gagal, username atau password salah.")</script>';
-			redirect(base_url('paket/login/'), 'refresh');
+			redirect(base_url('Admin/login/'), 'refresh');
 		}
 	}
 }

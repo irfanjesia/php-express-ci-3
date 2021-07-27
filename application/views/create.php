@@ -10,17 +10,17 @@
 <body style="background-image: url('<?php echo base_url(); ?>public/image/create.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment: fixed; background-position: right 20% bottom 10%;">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container-fluid">
-			<img class="navbar-brand" src=".<?php echo base_url(); ?>public/image/logo.png" style="display: block; width: 10%;" alt="logo">
+			<img class="navbar-brand" src="<?php echo base_url(); ?>public/image/logo.png" style="display: block; width: 10%;" alt="logo">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href='<?php echo base_url('/paket/admin/'); ?>'>Home</a>
+						<a class="nav-link active" aria-current="page" href='<?php echo base_url(); ?>Admin/home/'>Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href='<?php echo base_url('/paket/admin/#list'); ?>'>List Pengiriman</a>
+						<a class="nav-link" href='<?php echo base_url(); ?>Admin/home/#list'>List Pengiriman</a>
 					</li>
 				</ul>
 			</div>
@@ -31,7 +31,7 @@
 			<div class="col" style="margin-right: 40px; margin-left: 40px; margin-bottom: 40px; margin-top: 40px;">
 				<h1>Create</h1>
 				<br>
-				<form action='<?php echo base_url('/paket/create_process/'); ?>' method='post' style="background-color: lightgrey; padding: 20px 20px 20px 20px; border-radius: 5px; opacity: 90%">
+				<form action='<?php echo base_url(); ?>Admin/create_process/' method='post' style="background-color: lightgrey; padding: 20px 20px 20px 20px; border-radius: 5px; opacity: 90%">
 					<div class="form-floating mb-3">
 						<input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name='resi'>
 						<label for="floatingInput">No. Resi</label>
