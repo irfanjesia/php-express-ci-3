@@ -59,7 +59,6 @@ class process extends CI_Model
 	public function administration($username, $password)
 	{
 		if ($username == 'admin' && $password == 'rahasia') {
-			$this->load->helper('url');
 			$this->load->model('process');
 			$posts = $this->process->get_posts();
 			$data['posts'] = $posts;
