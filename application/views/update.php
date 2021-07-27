@@ -32,7 +32,7 @@
 				<h1>Update</h1>
 				<br>
 				<?php foreach ($posts as $post) : ?>
-					<form action='<?php echo base_url('/Admin/update_process/' . $post->resi); ?>' method='post' style="background-color: lightgrey; padding: 20px 20px 20px 20px; border-radius: 5px; opacity: 90%">
+					<form action='<?php echo base_url('Admin/update_process/' . $post->resi); ?>' method='post' style="background-color: lightgrey; padding: 20px 20px 20px 20px; border-radius: 5px; opacity: 90%">
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label"> Nama Barang: </label>
 							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='barang' value='<?php echo $post->barang; ?>'>
