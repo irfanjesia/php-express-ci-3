@@ -2,7 +2,7 @@
 session_start();
 if (empty($_SESSION['username'])) {
 	echo '<script>alert("Maaf, Anda belum login.")</script>';
-	redirect(base_url('paket/'), 'refresh');
+	redirect(base_url(), 'refresh');
 } else {
 ?>
 
